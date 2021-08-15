@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-export default class Header extends Component {
-  render() {
-    let resumeData = this.props.resumeData;
+import React from 'react';
+
+const Header = (props) => {
+    let resumeData = props.resumeData;
     return (
       <React.Fragment>
       
@@ -27,7 +27,7 @@ export default class Header extends Component {
                <hr/>
                <ul className="social">
                   {
-                    resumeData.socialLinks && resumeData.socialLinks.map(item =>{
+                    resumeData.socialLinks && resumeData.socialLinks.map((item,index) =>{
                       return(
                               <li key={item.name}>
                                 <a href={item.url} target="_blank"><i className={item.className}></i></a>
@@ -47,5 +47,6 @@ export default class Header extends Component {
       </header>
       </React.Fragment>
     );
-  }
 }
+
+export default Header;

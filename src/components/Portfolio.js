@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-export default class Porfolio extends Component {
-  render() {
-    let resumeData = this.props.resumeData;
+import React from 'react';
+const Porfolio = (props) => {
+    let resumeData = props.resumeData;
     return (
       <section id="portfolio">
       <div className="row">
@@ -9,12 +8,12 @@ export default class Porfolio extends Component {
           <h1>Check Out Some of My Works.</h1>
           <div id="portfolio-wrapper" className="bgrid-quarters s-bgrid-thirds cf">
           {
-            resumeData.portfolio && resumeData.portfolio.map((item)=>{
+            resumeData.portfolio && resumeData.portfolio.map((item,key)=>{
               return(
-                <div className="columns portfolio-item">
+                <div className="columns portfolio-item" key={key}>
                   <div className="item-wrap">
                     <a href="#modal-01">
-                      <img src={`${item.imgurl}`} className="item-img"/>
+                      <img alt="description of image" src={`${item.imgurl}`} className="item-img"/>
                       <div className="overlay">
                         <div className="portfolio-item-meta">
                           <h5>{item.name}</h5>
@@ -32,5 +31,6 @@ export default class Porfolio extends Component {
       </div>
   </section>
         );
-  }
 }
+
+export default Porfolio;
